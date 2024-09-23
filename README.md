@@ -1,0 +1,1 @@
+# zabbix-cli-plugin-entrypoint
