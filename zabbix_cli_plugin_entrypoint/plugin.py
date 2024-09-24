@@ -9,5 +9,5 @@ def __configure__(config: PluginConfig) -> None:
 @app.command()
 def my_command():
     print("Hello, World!")
-    conf_opt = app.get_plugin_config()
-    print(conf_opt)
+    config = app.get_plugin_config("zabbix_cli_plugin_entrypoint")
+    print(config)

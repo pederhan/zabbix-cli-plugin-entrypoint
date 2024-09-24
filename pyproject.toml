@@ -16,4 +16,8 @@ dependencies = [
 allow-direct-references = true
 
 [project.entry-points.'zabbix-cli.plugins']
-module = "zabbix_cli_plugin_entrypoint.plugin"
+# The key should be the name of your plugin, and the value should be the import path to the plugin.
+# The name of the plugin should match the name used in the zabbix-cli configuration file.
+# So in this case, the matching configuration would be:
+# [plugins.zabbix_cli_plugin_entrypoint]
+zabbix_cli_plugin_entrypoint = "zabbix_cli_plugin_entrypoint.plugin"
