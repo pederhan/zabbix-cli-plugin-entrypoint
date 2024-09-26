@@ -12,6 +12,9 @@ dependencies = [
     "zabbix-cli@git+https://github.com/pederhan/zabbix-cli.git@command-plugins",
 ]
 
+[project.optional-dependencies]
+test = ["pytest", "inline-snapshot"]
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
@@ -21,3 +24,33 @@ allow-direct-references = true
 # So in this case, the matching configuration would be:
 # [plugins.zabbix_cli_plugin_entrypoint]
 zabbix_cli_plugin_entrypoint = "zabbix_cli_plugin_entrypoint.plugin"
+
+
+# Optional Pyright configuration
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "strict"
+
+# Optional Ruff configuration
+
+[tool.ruff]
+src = ["zabbix_cli_plugin_entrypoint"]
+extend-include = [
+    "pyproject.toml",
+    "zabbix_cli_plugin_entrypoint/**/*.py",
+    "tests/**/*.py",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.ruff.lint.isort]
+# Force one line per import to simplify diffing and merging
+force-single-line = true
+# Add annotations import to every file
+required-imports = ["from __future__ import annotations"]
