@@ -1,0 +1,6 @@
+# Optional config table for the plugin
+# Add this to your zabbix-cli configuration file
+
+[plugins.zabbix_cli_plugin_entrypoint]
+some_option = "some_value"
+hostgroups = ["Linux servers", "Windows servers"]
