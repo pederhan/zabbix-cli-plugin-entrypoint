@@ -15,3 +15,13 @@ class MyResult(TableRenderable):
     col1: str
     col2: int = Field(default=..., json_schema_extra={MetaKey.HEADER: "Column 2"})
     col3: List[str] = Field(default=[], json_schema_extra={MetaKey.JOIN_CHAR: ", "})
+
+    # Renders tables in the following format:
+    # ╭───────┬──────────┬─────────╮
+    # │ Col1  │ Column 2 │ Col3    │
+    # ├───────┼──────────┼─────────┤
+    # │ Hello │ 42       │ a, b, c │
+    # ╰───────┴──────────┴─────────╯
+    #               ↑           ↑
+    #      Manual header name   │
+    #                   Comma-separated instead of newline-separated
