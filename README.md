@@ -2,6 +2,22 @@
 
 Example plugin for Zabbix-CLI using package entry points.
 
+## Installation
+
+uv:
+
+```bash
+uv tool install git+https://github.com/unioslo/zabbix-cli.git@master --with git+https://github.com/pederhan/zabbix-cli-plugin-entrypoint.git@ma
+in
+```
+
+pipx:
+
+```bash
+pipx install git+https://github.com/unioslo/zabbix-cli.git@master
+pipx inject zabbix-cli git+https://github.com/pederhan/zabbix-cli-plugin-entrypoint.git@main
+```
+
 ## Tests
 
 > [!IMPORTANT]
