@@ -57,7 +57,7 @@ def my_failing_command():
     # Prints an error message and returns a non-zero exit code
     exit_err("Command failed")
 
-    # Can specify exact code and en exception to pass along
+    # Can specify exact code and an exception to pass along
     # exit_err("Command failed", code=123, exception=MyCustomException("Failed"))
 
 
