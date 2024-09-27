@@ -5,9 +5,9 @@ import subprocess
 from inline_snapshot import snapshot
 
 
-def test_plugin_imported() -> None:
+def test_plugin_imported(config_file_str: str) -> None:
     result = subprocess.run(
-        ["zabbix-cli", "--help"],
+        ["zabbix-cli", "--config", config_file_str, "--help"],
         capture_output=True,
         text=True,
     )
@@ -15,9 +15,9 @@ def test_plugin_imported() -> None:
     assert "Sample Plugin" in result.stdout
 
 
-def test_my_command() -> None:
+def test_my_command(config_file_str: str) -> None:
     result = subprocess.run(
-        ["zabbix-cli", "my_command"],
+        ["zabbix-cli", "--config", config_file_str, "my_command"],
         capture_output=True,
         text=True,
     )
@@ -29,9 +29,9 @@ def test_my_command() -> None:
     assert "Command completed successfully" in result.stderr
 
 
-def test_my_result_command_table() -> None:
+def test_my_result_command_table(config_file_str: str) -> None:
     result = subprocess.run(
-        ["zabbix-cli", "-o", "table", "my_result_command"],
+        ["zabbix-cli", "--config", config_file_str, "-o", "table", "my_result_command"],
         capture_output=True,
         text=True,
     )
@@ -47,9 +47,9 @@ def test_my_result_command_table() -> None:
     )
 
 
-def test_my_result_command_json() -> None:
+def test_my_result_command_json(config_file_str: str) -> None:
     result = subprocess.run(
-        ["zabbix-cli", "-o", "json", "my_result_command"],
+        ["zabbix-cli", "--config", config_file_str, "-o", "json", "my_result_command"],
         capture_output=True,
         text=True,
     )
@@ -75,9 +75,9 @@ def test_my_result_command_json() -> None:
     )
 
 
-def test_my_failing_command() -> None:
+def test_my_failing_command(config_file_str: str) -> None:
     result = subprocess.run(
-        ["zabbix-cli", "my_failing_command"],
+        ["zabbix-cli", "--config", config_file_str, "my_failing_command"],
         capture_output=True,
         text=True,
     )
@@ -86,9 +86,9 @@ def test_my_failing_command() -> None:
     assert result.returncode == 1
 
 
-def test_command_with_dash() -> None:
+def test_command_with_dash(config_file_str: str) -> None:
     result = subprocess.run(
-        ["zabbix-cli", "command-with-dash"],
+        ["zabbix-cli", "--config", config_file_str, "command-with-dash"],
         capture_output=True,
         text=True,
     )
