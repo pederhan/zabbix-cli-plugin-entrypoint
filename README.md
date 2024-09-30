@@ -7,8 +7,7 @@ Example plugin for Zabbix-CLI using package entry points.
 uv:
 
 ```bash
-uv tool install git+https://github.com/unioslo/zabbix-cli.git@master --with git+https://github.com/pederhan/zabbix-cli-plugin-entrypoint.git@ma
-in
+uv tool install git+https://github.com/unioslo/zabbix-cli.git@master --with git+https://github.com/pederhan/zabbix-cli-plugin-entrypoint.git@main
 ```
 
 pipx:
